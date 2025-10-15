@@ -1,20 +1,20 @@
 extends Sprite2D
 
-@export var speed = 5
+@export var speed: float = 200.0
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("move_right"):
-		position.x += speed
-	if Input.is_action_pressed("move_left"):
-		position.x -= speed
-	if Input.is_action_pressed("move_up"):
-		position.y -= speed
-	if Input.is_action_pressed("move_down"):
-		position.y += speed
+	var move_dir = Vector2.ZERO
+	
+	if Input.is_action_pressed("ui_right"):
+		move_dir.x += 1
+	elif Input.is_action_pressed("ui_left"):
+		move_dir.x -= 1
+
+	if move_dir.x > 0:
+		print("Moving right!")
+	elif move_dir.x < 0:
+		print("Moving left!")
+	else:
+		print("Standing still!")
+
+	position += move_dir * speed * delta

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfp0d24dvgh3f"]
+[gd_scene load_steps=6 format=3 uid="uid://bfp0d24dvgh3f"]
 
 [ext_resource type="Texture2D" uid="uid://duekb425o8mfd" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://djk0cyyhu0fq3" path="res://icon.gd" id="2_0e48y"]
+
+[sub_resource type="Environment" id="Environment_0e48y"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_epypp"]
+
+[sub_resource type="Compositor" id="Compositor_0hol4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,4 +15,10 @@
 position = Vector2(204, 141)
 scale = Vector2(1.40625, 1.3125)
 texture = ExtResource("1_wtcfe")
+script = ExtResource("2_0e48y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0e48y")
+camera_attributes = SubResource("CameraAttributesPractical_epypp")
+compositor = SubResource("Compositor_0hol4")
 script = ExtResource("2_0e48y")
